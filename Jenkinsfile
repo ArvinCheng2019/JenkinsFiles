@@ -31,9 +31,6 @@ environment{
     stage('打包'){
       steps{
         sh label:' ',script:' echo build'
-        script{
-          
-        }
       }
     }
     stage('发布'){
