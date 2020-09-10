@@ -12,6 +12,11 @@ pipeline{
     timestamps()
     //timeout(time:5,unit:'SECONDS') 超时 可以 timeout(5) 这种是 5分钟
   }
+
+environment{
+  foo = 'today is friday'
+}
+
   stages{
     stage('获取参数'){
       steps{
@@ -19,12 +24,16 @@ pipeline{
         sh label:' ',script:"echo ${params.bool}"
         sh label:' ',script:"echo ${params.chs}"
         sh label:' ',script:"echo ${params.text}"
+        sh label:' ',script:"echo ${foo}"
       }
     }
 
     stage('打包'){
       steps{
         sh label:' ',script:' echo build'
+        script{
+          println(foo)
+        }
       }
     }
     stage('发布'){
