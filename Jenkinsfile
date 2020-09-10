@@ -32,8 +32,7 @@ environment{
       steps{
         sh label:' ',script:' echo build'
         script{
-          if(chs=="ps4")
-            println(foo)
+          
         }
       }
     }
