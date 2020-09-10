@@ -12,7 +12,6 @@ pipeline{
     timestamps()
     //timeout(time:5,unit:'SECONDS') 超时 可以 timeout(5) 这种是 5分钟
   }
-
   stages{
     stage('获取参数'){
       steps{
@@ -31,11 +30,6 @@ pipeline{
     stage('发布'){
         steps{
           sh label:' ',script:" echo release"
-        }
-      }
-      stage("上传"){
-        steps{
-
         }
       }
   }
