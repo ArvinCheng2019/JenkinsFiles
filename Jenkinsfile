@@ -18,6 +18,7 @@ environment{
 }
 
   stages{
+
     stage('获取参数'){
       steps{
         sh label:' ',script:"echo ${params.str}"
@@ -27,13 +28,29 @@ environment{
         sh label:' ',script:"echo ${foo}"
       }
     }
-
-    stage('打包'){
+    stage("修改资源"){
       steps{
         sh label:' ',script:' echo build'
       }
     }
-    stage('发布'){
+
+    stage("打 AB 包"){
+      steps{
+        sh label:' ',script:' echo build'
+      }
+    }
+
+    stage("导出工程"){
+      steps{
+        sh label:' ',script:' echo build'
+      }
+    }
+    stage('导出apk'){
+      steps{
+        sh label:' ',script:' echo build'
+      }
+    }
+    stage('上传'){
         steps{
           sh label:' ',script:" echo release"
         }
