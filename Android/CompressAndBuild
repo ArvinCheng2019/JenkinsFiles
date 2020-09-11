@@ -26,11 +26,12 @@ steps{
       sh label:'压缩资源',script:"${params.UNITY_PATH} -batchmode -nographics -projectPath ${params.PROJ_PATH} -logFile ${params.LOG_PATH} -executeMethod   UwaProjScan.MainScan.DoTest -quit"
     }
 }
-stage("上传UWA检查结果"){
-steps{
-      sh label:'上传UWA检查结果',script:"mono ${params.UWA_PATH}UwaDataUploader.exe  ${params.PROJ_PATH}UwaScan -quit"
-    }
-}
+
+//stage("上传UWA检查结果"){
+//steps{
+ //     sh label:'上传UWA检查结果',script:"mono ${params.UWA_PATH}UwaDataUploader.exe  ${params.PROJ_PATH}UwaScan -quit"
+  //  }
+//}
 
 stage("打AB包"){
     steps{
