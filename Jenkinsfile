@@ -17,6 +17,7 @@ pipeline{
 stages{
   stage("打包"){
       steps{
+          sh label:' ',script:"echo ${params.UNITY_PATH}"
       //  sh label:'打包',script:"${params.UNITY_PATH} -batchmode -nographics -projectPath ${params.PROJ_PATH} -logFile ${params.LOG_PATH} -executeMethod ${params.RUN_FUN} -quit ${params.EXPORT_PATH}"
       }
     }
