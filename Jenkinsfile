@@ -6,7 +6,7 @@ pipeline{
     string(name:'UNITY_PATH', defaultValue:'Default' ,description:"Unity安装路径", trim:true)
     string(name:'EXPORT_PATH',defaultValue:'Default',description:'项目导出路径')
     string(name:'LOG_PATH',defaultValue:'Default',description:'打包log 的路径')
-    choice(name:'RUN_FUN',choices:['JenkinsBuilder.RunBuilds'.'BuildAndroidFull'], description:"这里是可执行函数,对应Unity里的函数")
+    choice(name:'RUN_FUN',choices:['JenkinsBuilder.RunBuilds','BuildAndroidFull'], description:"这里是可执行函数,对应Unity里的函数")
   }
 
   options{
