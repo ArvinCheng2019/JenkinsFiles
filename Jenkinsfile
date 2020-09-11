@@ -4,7 +4,7 @@ pipeline{
 
     string(name:'PROJ_PATH', defaultValue:'Default' ,description:"项目工程路径", trim:true)
     string(name:'UNITY_PATH', defaultValue:'/Applications/Unity/Hub/Editor/2018.4.26f1/Unity.app/Contents/MacOS/Unity' ,description:"Unity安装路径", trim:true)
-    string(name:'EXPORT_PATH',defaultValue:'Default',description:'项目导出路径')
+    //string(name:'EXPORT_PATH',defaultValue:'Default',description:'项目导出路径')
     string(name:'LOG_PATH',defaultValue:'Default',description:'打包log 的路径')
     string(name:'BUILD_AB',defaultValue:'JenkinsBuilder.BuildAndroidAB',description:'打AB 包的函数，每个项目都不一样，这里默认都是KOK的打包函数')
     choice(name:'RUN_FUN',choices:['JenkinsBuilder.BuildAndroid_UWA','JenkinsBuilder.BuildAndroid_Full'], description:"这里是可执行函数,对应Unity里的函数")
@@ -24,7 +24,7 @@ stages{
 
   stage("打包"){
       steps{
-        sh label:'打包',script:"${params.UNITY_PATH} -batchmode -nographics -projectPath ${params.PROJ_PATH} -logFile ${params.LOG_PATH} -executeMethod ${params.RUN_FUN} -quit ${params.EXPORT_PATH}"
+        sh label:'打包',script:"${params.UNITY_PATH} -batchmode -nographics -projectPath ${params.PROJ_PATH} -logFile ${params.LOG_PATH} -executeMethod ${params.RUN_FUN} -quit "
       }
     }  
   }
