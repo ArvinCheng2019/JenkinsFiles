@@ -18,7 +18,7 @@ pipeline{
 stages{
   stage("打AB包"){
     steps{
-            sh label:'打AB包',script:"${params.UNITY_PATH} -batchmode -nographics -projectPath ${params.PROJ_PATH} -logFile ${params.LOG_PATH} -executeMethod ${params.BUILD_AB}"
+            sh label:'打AB包',script:"${params.UNITY_PATH} -batchmode -nographics -projectPath ${params.PROJ_PATH} -logFile ${params.LOG_PATH} -executeMethod ${params.BUILD_AB} -quit"
     }
   }
 
