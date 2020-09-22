@@ -20,7 +20,7 @@ pipeline{
 
     stage("更新Git"){
       steps{
-        sh label:"git 更新",script:"cd ${PROJ_PATH} git clone -b ${GIT_BRANCH} ${GIT_PATH}"
+        sh label:"git 更新",script:"cd ${PROJ_PATH} git clone ${GIT_PATH}"
       }
     }
       stage("打AB包"){
