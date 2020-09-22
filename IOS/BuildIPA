@@ -16,11 +16,10 @@ pipeline{
       timestamps()
     }
 
-    stages{
-
-      stage("更新Git"){
+  stages{
+      stage("打开文件"){
           steps{
-          sh label:"git 更新",script:"cd ${PROJ_PATH}"
+            sh label:"git 更新",script:"cd ${PROJ_PATH}"
         }
       }
 
