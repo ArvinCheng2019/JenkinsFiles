@@ -16,6 +16,13 @@ pipeline{
       timestamps()
   }
 stages{
+  
+      stage("更新GIT"){
+      steps{
+        sh label:"git 更新" script:"git clone -b${GIT_BRANCH} ${GIT_PATH}"
+      }
+    }
+
   stage("压缩资源"){
     steps{
       sh label:'压缩资源',script:"${params.UNITY_PATH} -batchmode -nographics -projectPath ${params.PROJ_PATH} -logFile ${params.LOG_PATH} -executeMethod ${params.COM_RES} -quit"
