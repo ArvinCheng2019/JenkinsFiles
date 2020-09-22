@@ -2,8 +2,6 @@ pipeline{
     agent any
     parameters{
       string(name:'PROJ_PATH', defaultValue:'/Users/xiaozhengcheng/.jenkins/workspace/kok_Android/' ,description:"项目工程路径", trim:true)
-      string(name:'GIT_PATH', defaultValue:'git@git.bluefir.cn:kok/archer.git' ,description:"Git地址", trim:true)
-      string(name:'GIT_BRANCH', defaultValue:'origin/master2018' ,description:"Git_分支", trim:true)
       string(name:'UNITY_PATH', defaultValue:'/Applications/Unity/Hub/Editor/2018.4.26f1/Unity.app/Contents/MacOS/Unity' ,description:"Unity安装路径", trim:true)
       string(name:'LOG_PATH',defaultValue:'/Users/xiaozhengcheng/.jenkins/workspace/kok_Android/log.txt',description:'打包log 的路径')
       string(name:'EXPORT',defaultValue:'/Users/xiaozhengcheng/.jenkins/workspace/Android_Build/AndroidAPK/',description:'打包输出的路径')
@@ -18,11 +16,7 @@ pipeline{
 
   stages{
 
-    stage("更新Git"){
-      steps{
-        sh label:"git 更新",script:"cd ${PROJ_PATH} git clone ${GIT_PATH}"
-      }
-    }
+  
       stage("打AB包"){
         steps{
                 sh label:'打AB包',script:"${params.UNITY_PATH} -batchmode -nographics -projectPath ${params.PROJ_PATH} -logFile ${params.LOG_PATH} -executeMethod ${params.BUILD_AB} -quit"
@@ -42,3 +36,11 @@ pipeline{
     }
 }
 
+
+//stage("更新Git"){
+  //    steps{
+   //     sh label:"git 更新",script:"cd ${PROJ_PATH} git clone ${GIT_PATH}"
+    //  }
+   // }
+    //  string(name:'GIT_PATH', defaultValue:'git@git.bluefir.cn:kok/archer.git' ,description:"Git地址", trim:true)
+     // string(name:'GIT_BRANCH', defaultValue:'origin/master2018' ,description:"Git_分支", trim:true)
