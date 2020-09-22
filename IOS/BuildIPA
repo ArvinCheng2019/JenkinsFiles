@@ -8,7 +8,7 @@ pipeline{
       string(name:'BUILD_AB',defaultValue:'JenkinsBuilder.BuildAndroidAB',description:'打AB 包的函数，每个项目都不一样，这里默认都是KOK的打包函数')
       choice(name:'RUN_FUN',choices:['JenkinsBuilder.BuildAndroid_UWA','JenkinsBuilder.BuildAndroid_Full'], description:"这里是可执行函数,对应Unity里的函数")
       string(name:'GIT_PATH', defaultValue:'git@git.bluefir.cn:Arvincheng/testJenkins.git' ,description:"Git地址", trim:true)
-      string(name:'GIT_BRANCH', defaultValue:'*/dev2020' ,description:"Git_分支", trim:true)
+      string(name:'GIT_BRANCH', defaultValue:'dev2020' ,description:"Git_分支", trim:true)
     }
 
     options{
@@ -23,7 +23,7 @@ pipeline{
           sh label:"git 更新",script:"cd ${PROJ_PATH}"
         }
       }
-      
+
       stage("更新Git"){
           steps{
           sh label:"git 更新",script:" git clone -b ${GIT_BRANCH} ${GIT_PATH}"
