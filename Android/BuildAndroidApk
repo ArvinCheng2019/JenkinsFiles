@@ -2,8 +2,8 @@ pipeline{
     agent any
     parameters{
       string(name:'PROJ_PATH', defaultValue:'/Users/xiaozhengcheng/.jenkins/workspace/kok_Android/' ,description:"项目工程路径", trim:true)
-      string(name:'GIT_PATH', defaultValue:'/Users/xiaozhengcheng/.jenkins/workspace/kok_Android/' ,description:"Git地址", trim:true)
-      string(name:'GIT_BRANCH', defaultValue:'/Users/xiaozhengcheng/.jenkins/workspace/kok_Android/' ,description:"Git_分支", trim:true)
+      string(name:'GIT_PATH', defaultValue:'git@git.bluefir.cn:kok/archer.git' ,description:"Git地址", trim:true)
+      string(name:'GIT_BRANCH', defaultValue:'origin/master2018' ,description:"Git_分支", trim:true)
       string(name:'UNITY_PATH', defaultValue:'/Applications/Unity/Hub/Editor/2018.4.26f1/Unity.app/Contents/MacOS/Unity' ,description:"Unity安装路径", trim:true)
       string(name:'LOG_PATH',defaultValue:'/Users/xiaozhengcheng/.jenkins/workspace/kok_Android/log.txt',description:'打包log 的路径')
       string(name:'EXPORT',defaultValue:'/Users/xiaozhengcheng/.jenkins/workspace/Android_Build/AndroidAPK/',description:'打包输出的路径')
