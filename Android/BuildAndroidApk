@@ -35,10 +35,4 @@ pipeline{
 }
 
 
-//stage("更新Git"){
-  //    steps{
-   //     sh label:"git 更新",script:"cd ${PROJ_PATH} git clone ${GIT_PATH}"
-    //  }
-   // }
-    //  string(name:'GIT_PATH', defaultValue:'git@git.bluefir.cn:kok/archer.git' ,description:"Git地址", trim:true)
-     // string(name:'GIT_BRANCH', defaultValue:'origin/master2018' ,description:"Git_分支", trim:true)
+
