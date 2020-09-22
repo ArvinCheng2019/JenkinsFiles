@@ -25,7 +25,12 @@ pipeline{
           steps{
             sh label:'打包',script:"${params.UNITY_PATH} -batchmode -nographics -projectPath ${params.PROJ_PATH} -logFile ${params.LOG_PATH} -executeMethod ${params.RUN_FUN} -quit -${EXPORT}"
           }
-        }  
+        }
+      stage("拷贝APK"){
+        steps{
+          sh label:'移动',script:"cp -r ${params.PROJ_PATH}Build ${params.EXPORT}" 
+        }
+     }  
     }
 }
 
